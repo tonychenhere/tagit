@@ -1,7 +1,7 @@
 # tagit
 #### A react component let you edit txt and split to tags
 
-<img src=""/>
+<img src="https://github.com/robgaoo/tagit/blob/main/demo.gif"/>
 
 ```
 import Tagit from './tagit'
