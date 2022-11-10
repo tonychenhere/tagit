@@ -8,10 +8,12 @@
  import Rm from './remove'
  import {useEffect, useRef, useState} from "react";
  
- const Index = (props) => {
  
+ const Index = (props) => {
    let {value} = props
+   let typo = props.typo || {"，": ","}
    let sp = props.splitBy || ","
+ 
    const [changed, setChanged] = useState(false)
  
    const [tags, setTags] = useState([])
@@ -37,6 +39,18 @@
      e.target.value = ""
    }
  
+ 
+   const fixTypo = (text) => {
+     for (const k in typo) {
+       if (text.slice(-1) === k) {
+         text = text.slice(0, -1) + typo[k]
+         break
+       }
+     }
+ 
+     return text
+   }
+ 
    const handleTextKeyUp = (e) => {
      if (e.code === "Backspace") {
        if (e.target.value === "") {
@@ -51,6 +65,9 @@
          return
        }
        let txt = e.target.value.trim()
+ 
+       txt = fixTypo(txt)
+ 
        let spr = txt.split(sp)
        if (spr.length === 1) {
          return;

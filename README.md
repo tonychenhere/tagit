@@ -20,3 +20,11 @@ OR
         console.log(arr,str)
       }}></Tagit>
 ```
+
+Fix Typo
+
+```javascript
+       <Tagit value={[]} splitBy={","} typo={{"，": ","}} style={{width: "200px"}} onChange={(arr, str) => {
+        console.log(arr, str)
+      }}></Tagit>
+```
